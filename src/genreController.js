@@ -4,10 +4,7 @@ class genreController {
 
    async createGenre(req, res) {
       try {
-         const {
-            genre,
-            movie_genre
-         } = req.body;
+         const { genre, movie_genre } = req.body;
          const newGenre = await db.query(`INSERT INTO genre (genre, movie_genre_fkey) VALUES ($1, $2) RETURNING *`,
             [genre, movie_genre]);
 
