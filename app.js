@@ -17,23 +17,19 @@ app.use(parseUrl('http://localhost:8080'));
 app.addRouter(movieRouter);
 app.addRouter(genreRouter);
 
-const start = async() => {
-	try {
-		await db.connect((err) => {
-			if(err) {
-				console.log(error);
-			} else {
-				console.log('Database connected!:)');
-			}
-		});
-		app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`))
-	}
-
-	catch (err) {
-		console.log(err)
-	}
+const start = async () => {
+   try {
+      await db.connect((err) => {
+         if (err) {
+            console.log(error);
+         } else {
+            console.log('Database connected!:)');
+         }
+      });
+      app.listen(PORT, () => console.log(`Server started on PORT ${PORT}`))
+   } catch (err) {
+      console.log(err)
+   }
 }
 
 start();
-
-
